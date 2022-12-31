@@ -17,6 +17,48 @@
   list-style-type: none;
   width: 90%;
 }
+
+.input-logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.search-name {
+  left: 23.68%;
+  right: 64.24%;
+  top: 44.62%;
+  bottom: 53.96%;
+  margin: 0px;
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height, or 133% */
+
+  letter-spacing: 0.2px;
+
+  /* Light / blue-gray / 700 */
+
+  color: #334155;
+}
+.searchInput {
+  border-radius: 4px;
+  border: 2px solid #aaa;
+  margin: 0px;
+  outline: none;
+  padding: 5px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  border-color: dodgerblue;
+  box-shadow: 0 0 5px 0 dodgerblue;
+}
+.render-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 @media screen and (min-width: 768px) {
   .restaurant-list {
     display: flex;
@@ -27,6 +69,8 @@
 }
 
 .restaurant-error-view-container {
+  padding: 50px;
+  margin: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;

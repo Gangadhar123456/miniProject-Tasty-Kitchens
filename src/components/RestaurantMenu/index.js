@@ -28,12 +28,14 @@ const apiStatusConstants = {
   inProgress: 'IN_PROGRESS',
 }
 
-class AllRestaurantSection extends Component {
+class RestaurantMenu extends Component {
   state = {
     restaurantList: [],
     activeOptionId: 'Lowest',
     currentPage: 0,
     apiStatus: apiStatusConstants.initial,
+    search: '',
+    isSearch: false,
   }
 
   componentDidMount() {
@@ -81,23 +83,101 @@ class AllRestaurantSection extends Component {
     this.setState({activeOptionId}, this.getRestaurants)
   }
 
+  onChangeSearch = e => {
+    this.setState({search: e.target.value, isSearch: true})
+  }
+
   renderRestaurantListView = () => {
-    const {restaurantList, activeOptionId} = this.state
+    const {restaurantList, activeOptionId, search, isSearch} = this.state
+    const searchResults = restaurantList.filter(eachRestaurant =>
+      eachRestaurant.name.toLowerCase().includes(search.toLowerCase()),
+    )
 
     return (
-      <>
-        <RestaurantHeader
-          activeOptionId={activeOptionId}
-          sortByOptions={sortByOptions}
-          changeSortBy={this.changeSortBy}
-        />
-        <hr className="hr-line" />
-        <ul className="restaurant-list">
-          {restaurantList.map(restaurant => (
-            <RestaurantCard restaurant={restaurant} key={restaurant.id} />
-          ))}
-        </ul>
-      </>
+      <div className="render-container">
+        {isSearch ? (
+          <>
+            <RestaurantHeader
+              activeOptionId={activeOptionId}
+              sortByOptions={sortByOptions}
+              changeSortBy={this.changeSortBy}
+            />
+            <hr className="hr-line" />
+            <br />
+            <div className="input-logo-container">
+              <img
+                className="website-logo"
+                src="https://res.cloudinary.com/nsp/image/upload/v1635311275/tastyKitchens/websiteLogo_1x_fzy1tx.png"
+                alt="website logo"
+              />
+              <input
+                className="searchInput"
+                onChange={this.onChangeSearch}
+                value={search}
+                placeholder="Search for restaurant "
+              />
+            </div>
+            <br />
+            <p className="search-name">Search Your Restaurant Here</p>
+            <hr className="hr-line" />
+            {searchResults.length === 0 ? (
+              <div className="restaurant-error-view-container">
+                <img
+                  src="https://res.cloudinary.com/djjbttpq0/image/upload/v1641968177/Tasty%20Kitchens/erroring_1x_x7gtp8.png"
+                  alt="restaurants failure"
+                  className="restaurant-failure-img"
+                />
+                <h1 className="restaurant-failure-heading-text">
+                  Page Not Found
+                </h1>
+                <p className="restaurant-failure-description">
+                  we are sorry, we did,t find any data on your search
+                </p>
+                <button className="error-button" type="button">
+                  Home Page
+                </button>
+              </div>
+            ) : (
+              <ul className="restaurant-list">
+                {searchResults.map(restaurant => (
+                  <RestaurantCard restaurant={restaurant} key={restaurant.id} />
+                ))}
+              </ul>
+            )}
+          </>
+        ) : (
+          <>
+            <RestaurantHeader
+              activeOptionId={activeOptionId}
+              sortByOptions={sortByOptions}
+              changeSortBy={this.changeSortBy}
+            />
+            <hr className="hr-line" />
+            <br />
+            <div className="input-logo-container">
+              <img
+                className="website-logo"
+                src="https://res.cloudinary.com/nsp/image/upload/v1635311275/tastyKitchens/websiteLogo_1x_fzy1tx.png"
+                alt="website logo"
+              />
+              <input
+                className="searchInput"
+                onChange={this.onChangeSearch}
+                value={search}
+                placeholder="Search for restaurant "
+              />
+            </div>
+            <br />
+            <p className="search-name">Search Your Restaurant Here</p>
+            <hr className="hr-line" />
+            <ul className="restaurant-list">
+              {restaurantList.map(restaurant => (
+                <RestaurantCard restaurant={restaurant} key={restaurant.id} />
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
     )
   }
 
@@ -198,4 +278,4 @@ class AllRestaurantSection extends Component {
   }
 }
 
-export default AllRestaurantSection
+export default RestaurantMenu

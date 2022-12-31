@@ -41,6 +41,7 @@ class Header extends Component {
                     src="https://res.cloudinary.com/nsp/image/upload/v1635311275/tastyKitchens/websiteLogo_1x_fzy1tx.png"
                     alt="website logo"
                   />
+                  <h1 className="tasty-kitchen-name">Tasty kitchen</h1>
                 </div>
               </Link>
               <button type="button" className="nav-mobile-btn">
@@ -60,6 +61,7 @@ class Header extends Component {
                     src="https://res.cloudinary.com/nsp/image/upload/v1635311275/tastyKitchens/websiteLogo_1x_fzy1tx.png"
                     alt="website logo"
                   />
+                  <h1 className="tasty-kitchen-name">Tasty kitchen</h1>
                 </div>
               </Link>
               <ul className="nav-menu">

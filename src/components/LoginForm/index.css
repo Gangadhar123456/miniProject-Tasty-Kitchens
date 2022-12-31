@@ -15,7 +15,48 @@
     width: 100%;
   }
 }
+.password-img {
+  height: 84px;
+}
+.password-shoe-hide-name {
+  font-family: 'DM Sans';
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0px;
+  padding: 0px;
+  text-shadow: 2px 2px 4px #9c8989;
+}
 
+@media screen and (min-width: 992px) {
+  input {
+    height: 40px;
+    left: 0%;
+    right: 0%;
+    top: 24px;
+    background: #e2e8f0;
+    border-radius: 2px;
+  }
+}
+input {
+  border: 0px;
+  height: 40px;
+  left: 0%;
+  padding-left: 5%;
+  top: 24px;
+  width: 270px;
+  background: #e2e8f0;
+  border-radius: 2px;
+}
+.eye-btn {
+  margin-top: 20px;
+  align-items: center;
+  align-self: center;
+  background-color: transparent;
+  border: 0px;
+  border-top-right-radius: 2px;
+}
 .login-image-mobile {
   width: 304px;
 }
@@ -32,6 +73,13 @@
   .login-image-desktop {
     display: inline;
   }
+}
+.password-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
 }
 
 .login-website-logo-desktop-image {
@@ -103,6 +151,11 @@
   margin-top: 5px;
   padding: 8px 16px 8px 16px;
   outline: none;
+}
+@media screen and (min-width: 992px) {
+  password-input-field {
+    color: red;
+  }
 }
 
 .login-button {

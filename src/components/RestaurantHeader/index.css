@@ -88,9 +88,12 @@
 }
 
 .sort-by {
-  color: #475569;
-  font-family: 'Roboto';
+  color: red;
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 700;
   font-size: 16px;
+  line-height: 32px;
 }
 
 .sort-by-select {

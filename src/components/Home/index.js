@@ -1,6 +1,6 @@
 import Header from '../Header'
 
-import AllRestaurantSection from '../AllRestaurantSection'
+import RestaurantMenu from '../RestaurantMenu'
 import Footer from '../Footer'
 
 import './index.css'
@@ -8,7 +8,7 @@ import './index.css'
 const Home = () => (
   <>
     <Header />
-    <AllRestaurantSection />
+    <RestaurantMenu />
     <Footer />
   </>
 )

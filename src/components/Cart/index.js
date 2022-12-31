@@ -56,6 +56,7 @@ class Cart extends Component {
 
   render() {
     const {cartData, cartStatus, orderStatus, totalCartAmount} = this.state
+    console.log(cartData)
 
     return (
       <>
@@ -84,7 +85,10 @@ class Cart extends Component {
                     <hr className="cart-line" />
                     <div className="total-cart-amount-container">
                       <h1 className="total-order-text">Order Total:</h1>
-                      <p className="total-order-amount">₹{totalCartAmount}</p>
+                      <p className="total-order-amount">
+                        <span>Total Cart Items : {cartData.length}</span>
+                        <br />₹{totalCartAmount}
+                      </p>
                     </div>
                     <div className="place-order-button-container">
                       <button

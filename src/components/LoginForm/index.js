@@ -10,6 +10,7 @@ class LoginForm extends Component {
     password: '',
     showSubmitError: false,
     errorMsg: '',
+    isPassword: false,
   }
 
   onChangeUsername = event => {
@@ -37,7 +38,11 @@ class LoginForm extends Component {
   submitForm = async event => {
     event.preventDefault()
     const {username, password} = this.state
+
     const userDetails = {username, password}
+    if (username === '') {
+      alert('please Enter Username and password ')
+    }
     const url = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',
@@ -52,21 +57,46 @@ class LoginForm extends Component {
     }
   }
 
+  showPassword = () => {
+    this.setState(prevState => ({isPassword: !prevState.isPassword}))
+  }
+
   renderPasswordField = () => {
-    const {password} = this.state
+    const {password, isPassword} = this.state
     return (
       <>
         <label className="input-label" htmlFor="password">
           PASSWORD
         </label>
         <input
-          type="password"
+          type={isPassword ? 'text' : 'password'}
           id="password"
           className="password-input-field"
           value={password}
           onChange={this.onChangePassword}
           placeholder="Password"
         />
+        <button className="eye-btn" type="button" onClick={this.showPassword}>
+          {isPassword ? (
+            <div>
+              <img
+                className="password-img"
+                src="https://res.cloudinary.com/dhscilqq8/image/upload/v1672422167/open_eyes_m1anrl.jpg"
+                alt="hide-img"
+              />
+              <p className="password-shoe-hide-name">Password Hide</p>
+            </div>
+          ) : (
+            <div>
+              <img
+                className="password-img"
+                src="https://res.cloudinary.com/dhscilqq8/image/upload/v1672422187/eyesclosed_image_lclwll.jpg"
+                alt="show-img"
+              />
+              <p className="password-shoe-hide-name">Password Show</p>
+            </div>
+          )}
+        </button>
       </>
     )
   }

@@ -21,13 +21,44 @@ const Footer = () => (
       The only thing we are serious about is food. Contact us on
     </p>
     <div className="social-container">
-      <FaPinterestSquare
-        testid="pintrest-social-icon"
-        className="social-icon"
-      />
-      <FaInstagram testid="instagram-social-icon" className="social-icon" />
-      <FaTwitter testid="twitter-social-icon" className="social-icon" />
-      <FaFacebookSquare testid="facebook-social-icon" className="social-icon" />
+      <a
+        href="https://in.pinterest.com/search/pins/?q=web%20development&rs=typed"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>
+          <FaPinterestSquare
+            testid="pintrest-social-icon"
+            className="social-icon"
+          />
+        </span>
+      </a>
+      <a
+        href="https://www.instagram.com/explore/tags/kitchen/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>
+          <FaInstagram testid="instagram-social-icon" className="social-icon" />
+        </span>
+      </a>
+      <a href="https://twitter.com/" target="_blank" rel="noreferrer">
+        <span>
+          <FaTwitter testid="twitter-social-icon" className="social-icon" />
+        </span>
+      </a>
+      <a
+        href="https://www.facebook.com/DreamWorksHome/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>
+          <FaFacebookSquare
+            testid="facebook-social-icon"
+            className="social-icon"
+          />
+        </span>
+      </a>
     </div>
   </div>
 )
