@@ -40,9 +40,6 @@ class LoginForm extends Component {
     const {username, password} = this.state
 
     const userDetails = {username, password}
-    if (username === '') {
-      alert('please Enter Username and password ')
-    }
     const url = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',

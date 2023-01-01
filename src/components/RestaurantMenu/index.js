@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 
+import {Link} from 'react-router-dom'
 import ReactSlider from '../ReactSlider'
 import RestaurantHeader from '../RestaurantHeader'
 import RestaurantCard from '../RestaurantCard'
@@ -133,9 +134,11 @@ class RestaurantMenu extends Component {
                 <p className="restaurant-failure-description">
                   we are sorry, we did,t find any data on your search
                 </p>
-                <button className="error-button" type="button">
-                  Home Page
-                </button>
+                <Link to="/">
+                  <button className="error-button" type="button">
+                    Home Page
+                  </button>
+                </Link>
               </div>
             ) : (
               <ul className="restaurant-list">
